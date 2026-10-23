@@ -17,7 +17,13 @@ public class FragmentShaderBuilder implements ClientListener {
 
     public FragmentShaderBuilder() {
         Daamky.INSTANCE.eventDispatcher().register(ClientInitEvent.class, class179Var -> {
-            int iMax = Math.max(1, GL33.glGetInteger(34930));
+            // GL_MAX_TEXTURE_IMAGE_UNITS (34916) is the per-stage limit used by fragment shaders.
+            // GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS (34930) can report 32+ on desktop, but MobileGlues/GLES
+            // only allows 16 fragment samplers — linking fails otherwise.
+            int maxFragUnits = GL33.glGetInteger(34916);
+            int maxCombined = GL33.glGetInteger(34930);
+            int iMax = Math.max(1, Math.min(16, Math.min(maxFragUnits, maxCombined)));
+            Daamky.LOGGER.info("DrawEngine texture units: {} (frag={}, combined={})", iMax, maxFragUnits, maxCombined);
             Daamky.INSTANCE.drawEngine(new DrawEngine(new ShaderProgram(new ByteArrayResource(buildSource(iMax).getBytes(StandardCharsets.UTF_8)), new ResourceRouter("/", ClasspathResource::new).route("shaders/core.vsh")), iMax));
             Daamky.INSTANCE.windowController().init();
         });

@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "expa",
+  "id": "daamky",
   "version": "${version}",
-  "name": "expa",
-  "description": "expa soso",
+  "name": "daamky",
+  "description": "daamky",
   "authors": [],
   "license": "All-Rights-Reserved",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "ru.daamky.ExpaClientInit"
+      "ru.daamky.DaamkyClientInit"
     ]
   },
   "depends": {
@@ -19,7 +19,7 @@
     "fabric-api": "*"
   },
   "mixins": [
-    "expa.mixins.json"
+    "daamky.mixins.json"
   ],
-  "accessWidener": "expa.accesswidener"
+  "accessWidener": "daamky.accesswidener"
 }

@@ -27,7 +27,7 @@ flat in int maskIndex;
 
 out vec4 fragColor;
 
-uniform sampler2D textureSampler[32];
+uniform sampler2D textureSampler[16];
 uniform vec2 resolution;
 
 
@@ -61,22 +61,6 @@ vec4 sampleTex(int id, vec2 uv) {
     if (id == 13) return texture(textureSampler[13], uv);
     if (id == 14) return texture(textureSampler[14], uv);
     if (id == 15) return texture(textureSampler[15], uv);
-    if (id == 16) return texture(textureSampler[16], uv);
-    if (id == 17) return texture(textureSampler[17], uv);
-    if (id == 18) return texture(textureSampler[18], uv);
-    if (id == 19) return texture(textureSampler[19], uv);
-    if (id == 20) return texture(textureSampler[20], uv);
-    if (id == 21) return texture(textureSampler[21], uv);
-    if (id == 22) return texture(textureSampler[22], uv);
-    if (id == 23) return texture(textureSampler[23], uv);
-    if (id == 24) return texture(textureSampler[24], uv);
-    if (id == 25) return texture(textureSampler[25], uv);
-    if (id == 26) return texture(textureSampler[26], uv);
-    if (id == 27) return texture(textureSampler[27], uv);
-    if (id == 28) return texture(textureSampler[28], uv);
-    if (id == 29) return texture(textureSampler[29], uv);
-    if (id == 30) return texture(textureSampler[30], uv);
-    if (id == 31) return texture(textureSampler[31], uv);
     return vec4(1.0, 0.0, 1.0, 1.0);
 }
 
@@ -97,22 +81,6 @@ ivec2 sampleTexSize(int id) {
     if (id == 13) return textureSize(textureSampler[13], 0);
     if (id == 14) return textureSize(textureSampler[14], 0);
     if (id == 15) return textureSize(textureSampler[15], 0);
-    if (id == 16) return textureSize(textureSampler[16], 0);
-    if (id == 17) return textureSize(textureSampler[17], 0);
-    if (id == 18) return textureSize(textureSampler[18], 0);
-    if (id == 19) return textureSize(textureSampler[19], 0);
-    if (id == 20) return textureSize(textureSampler[20], 0);
-    if (id == 21) return textureSize(textureSampler[21], 0);
-    if (id == 22) return textureSize(textureSampler[22], 0);
-    if (id == 23) return textureSize(textureSampler[23], 0);
-    if (id == 24) return textureSize(textureSampler[24], 0);
-    if (id == 25) return textureSize(textureSampler[25], 0);
-    if (id == 26) return textureSize(textureSampler[26], 0);
-    if (id == 27) return textureSize(textureSampler[27], 0);
-    if (id == 28) return textureSize(textureSampler[28], 0);
-    if (id == 29) return textureSize(textureSampler[29], 0);
-    if (id == 30) return textureSize(textureSampler[30], 0);
-    if (id == 31) return textureSize(textureSampler[31], 0);
     return ivec2(1, 1);
 }
 void main() {
